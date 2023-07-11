@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/pages/edit.dart';
+import 'package:task_manager/pages/pushnotifications.dart';
 import 'package:task_manager/pages/taskcreation.dart';
+import 'package:task_manager/pages/imagepicker.dart';
+
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -23,7 +26,7 @@ class _homeState extends State<home> {
      data= data.isNotEmpty ? data :ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     print(data);
     return DefaultTabController(
-      length: 2,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Text("Task Manager",style: const TextStyle(
@@ -42,7 +45,9 @@ class _homeState extends State<home> {
               indicatorColor: Colors.white,
               tabs: [
               Tab(icon: Icon(Icons.list,color: Colors.white,)),
-              Tab(icon: Icon(Icons.playlist_add_check_outlined,color: Colors.white,))
+              Tab(icon: Icon(Icons.playlist_add_check_outlined,color: Colors.white,)),
+                Tab(icon: Icon(Icons.camera,color: Colors.white,)),
+                Tab(icon: Icon(Icons.notifications,color: Colors.white,))
             ])
           ),
         Expanded(
@@ -162,6 +167,8 @@ class _homeState extends State<home> {
                   ),
                 ),
               ),
+              Imagepicker(),
+              PushNoitifications(),
             ])
         ),
           ],
